@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 
 const Banner = () => {
   return (
-    <div className="relative mb-5">
+    <div className="relative px-4 mb-5">
       <Swiper
         autoplay={{
           delay: 3000,

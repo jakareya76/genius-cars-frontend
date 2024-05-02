@@ -3,8 +3,8 @@ import footerLogo from "../assets/footerLogo.svg";
 const Footer = () => {
   return (
     <footer className="bg-[#151515] text-white">
-      <div className="container py-16 mx-auto footer">
-        <aside>
+      <div className="container grid-cols-2 px-5 py-16 mx-auto md:grid-cols-4 footer">
+        <aside className="col-span-2 md:col-span-1">
           <img src={footerLogo} alt="logo" className="w-[100px] mb-4" />
           <p className="max-w-xs">
             Edwin Diaz is a software and web technologies engineer, a life coach
