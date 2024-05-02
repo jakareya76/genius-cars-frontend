@@ -1,8 +1,10 @@
+import Banner from "../components/Home/Banner";
+
 const Home = () => {
   return (
-    <div>
-      <h2 className="text-xl">Home Page</h2>
-    </div>
+    <main className="container mx-auto">
+      <Banner />
+    </main>
   );
 };
 
