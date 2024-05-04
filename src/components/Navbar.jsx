@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout, loading } = useContext(AuthContext);
+
   return (
     <nav className="container mx-auto">
       <div className="py-5 navbar bg-base-100">
@@ -116,9 +120,46 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          {loading ? (
+            <span className="mx-5 bg-red-500 loading loading-dots loading-lg"></span>
+          ) : (
+            <>
+              {user ? (
+                <button
+                  onClick={() => logout()}
+                  className="mx-5 text-white bg-blue-500 border-blue-500 btn hover:bg-blue-600 hover:text-white"
+                >
+                  Logout
+                </button>
+              ) : (
+                <div className="mx-4 space-x-4">
+                  <Link
+                    className="text-white bg-blue-500 border-blue-500 btn hover:bg-blue-600 hover:text-white"
+                    to="/Login"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    className=" border-[#FF3811] btn bg-[#FF3811] text-white hover:bg-red-600 hover:text-white"
+                    to="/sign-up"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}{" "}
+            </>
+          )}
+
           <a className="bg-transparent border-[#FF3811] btn text-[#FF3811] hover:bg-[#FF3811] hover:text-white">
             Appointment
           </a>
+          {user && (
+            <img
+              src={user?.photoURL}
+              alt="user-img"
+              className="w-[40px] h-[40px] rounded-full object-cover ml-4"
+            />
+          )}
         </div>
       </div>
     </nav>
