@@ -6,7 +6,7 @@ const Service = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const res = await fetch("/services.json");
+      const res = await fetch("http://localhost:5000/services");
       const data = await res.json();
 
       setServices(data);

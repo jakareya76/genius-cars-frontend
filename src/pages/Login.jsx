@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import loginImg from "../assets/images/login/login.svg";
 import { AuthContext } from "../context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -17,7 +20,7 @@ const Login = () => {
     try {
       await login(email, password);
 
-      navigate("/");
+      navigate(location?.state ? location?.state : "/");
     } catch (error) {
       if (error.message === "Firebase: Error (auth/invalid-credential).") {
         alert("invalid credential");
@@ -26,9 +29,9 @@ const Login = () => {
     }
   };
 
-  if (user) {
-    navigate("/");
-  }
+  // if (user) {
+  //   navigate("/");
+  // }
 
   return (
     <div className="container mx-auto">

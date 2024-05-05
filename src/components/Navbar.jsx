@@ -47,6 +47,16 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
+              {user && (
+                <li>
+                  <Link
+                    className="text-[#444444] mx-2 hover:bg-[#FF3811] hover:text-white font-medium"
+                    to="/booking"
+                  >
+                    My Booking
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   className="text-[#444444] mx-2 hover:bg-[#FF3811] hover:text-white font-medium"
@@ -93,6 +103,17 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+            {user && (
+              <li>
+                <Link
+                  className="text-[#444444] mx-2 hover:bg-[#FF3811] hover:text-white font-medium"
+                  to="/booking"
+                >
+                  My Booking
+                </Link>
+              </li>
+            )}
+
             <li>
               <Link
                 className="text-[#444444] mx-2 hover:bg-[#FF3811] hover:text-white font-medium"
