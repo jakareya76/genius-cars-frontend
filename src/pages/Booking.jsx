@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
+import useAxiosSecure from "../hooks/useAxiosSecure";
+
 const Booking = () => {
   const [bookingData, setBookingData] = useState([]);
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
 
   const handleDelete = async (id) => {
     const procead = confirm("Are you sure you want to delete?");
@@ -25,14 +28,13 @@ const Booking = () => {
     }
   };
 
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `/booking?email=${user?.email}`;
 
   useEffect(() => {
     const getMyBooking = async () => {
-      const res = await fetch(url, { credentials: "include" });
-      const data = await res.json();
+      const res = await axiosSecure.get(url);
 
-      setBookingData(data);
+      setBookingData(res.data);
     };
 
     getMyBooking();
