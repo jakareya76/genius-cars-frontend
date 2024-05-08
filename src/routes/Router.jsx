@@ -7,7 +7,7 @@ import CheckOut from "../pages/CheckOut";
 import ErrorPage from "../pages/ErrorPage";
 import ServiceDetails from "../pages/ServiceDetails";
 import PrivateRoute from "./PrivateRoute";
-import Booking from "../components/Home/Booking";
+import Booking from "../pages/Booking";
 
 const router = createBrowserRouter([
   {
