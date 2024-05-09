@@ -21,9 +21,13 @@ const Login = () => {
 
       const userInfo = { email };
 
-      const res = await axios.post("http://localhost:5000/jwt", userInfo, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://genius-cars-api.vercel.app/jwt",
+        userInfo,
+        {
+          withCredentials: true,
+        }
+      );
 
       if (res.data.success) {
         navigate(location?.state ? location?.state : "/");

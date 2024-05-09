@@ -6,7 +6,7 @@ const Service = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const res = await fetch("http://localhost:5000/services");
+      const res = await fetch("https://genius-cars-api.vercel.app/services");
       const data = await res.json();
 
       setServices(data);

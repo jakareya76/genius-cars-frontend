@@ -32,7 +32,7 @@ const CheckOut = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/booking", {
+      const res = await fetch("https://genius-cars-api.vercel.app/booking", {
         method: "POST",
         headers: {
           "content-type": "application/json",

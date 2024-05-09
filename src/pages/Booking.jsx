@@ -12,9 +12,12 @@ const Booking = () => {
     const procead = confirm("Are you sure you want to delete?");
 
     if (procead) {
-      const res = await fetch(`http://localhost:5000/booking/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://genius-cars-api.vercel.app/booking/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       const data = await res.json();
 
